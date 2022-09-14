@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista</title>
+</head>
+<body>
+
+
+	<h2>Formulario de busqueda</h2>
+
+<form action="/oredenadores/buscar" method="post">
+
+
+		<input type="search" id="core" name="core" value="" placeholder = "core"> 
+		<input type="search" id="ram" name="ram" value="" placeholder = "ram"> 
+		<input type="search" id="disk" name="disk"value="" placeholder = "disk" >
+
+
+	
+
+
+		<button type="submit">Aceptar</button>
+	</form>
+
+
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+
+				<th>core</th>
+				<th>ram</th>
+				<!-- 	<th>alquiler</th>-->
+				<th>disk</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="oredenador: ${listabusqueda}">
+				<th th:text="${ordenador.id}">Id</th>
+				<th th:text="${ordenador.id}">core</th>
+				<th th:text="${ordenador.id}">ram</th>
+				<th th:text="${ordenador.id}">disk</th>
+				<td><a
+					th:href="@{/mostrar} + '/' + ${ordenador.id}">Mas
+						Detalles</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!--  <p>
+		<a th:href="@{/inmobiliaria/crear}">Crear Nueva</a>
+	</p> -->
+
+
+		</body>
+</html>
